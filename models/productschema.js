@@ -1,0 +1,71 @@
+const mongoose = require('mongoose')
+
+const productSchema = mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    productid:{
+        type:Number,
+        required:true
+    },
+    mainimg:{
+        type:String,
+        required:true
+    },
+    images:[
+        {
+            img:{
+                type:String,
+                required:true
+            }
+        }
+    ],
+    price:{
+        type:Number,
+        required:true
+    },
+    color:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    rating:{
+        type:Number,
+        default:0
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    size:[
+        {
+            size:{
+                type:String,
+                required:true
+            },
+            available:{
+                type:Boolean,
+                default:true
+            }
+        }
+    ],
+    discount:{
+        type:Number,
+        required:true
+    },
+    originalprice:{
+        type:Number,
+        required:true
+    },
+    instock:{
+        type:Boolean,
+        default:true
+    }
+})
+
+const product = mongoose.model('product' , productSchema)
+module.exports=product
